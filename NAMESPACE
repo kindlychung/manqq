@@ -1,0 +1,5 @@
+useDynLib(mhplot)
+import(ggplot2)
+import(RcppArmadillo)
+importFrom(Rcpp, evalCpp)
+exportPattern("^[[:alpha:]]+")
