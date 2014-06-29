@@ -4,7 +4,7 @@ readplinkout = function(filename, colnameSelect=c("CHR", "SNP", "BP", "P")) {
     ## colClsAll = c("numeric", "character", "numeric", "character", "character", rep("numeric", 4))
     ## names(colClsAll) = c("CHR", "SNP", "BP", "A1", "TEST", "NMISS", "BETA", "STAT", "P")
 
-    tmp1 = read.table(filename, header=TRUE, nrows=2)
+    tmp1 = read.table(filename, header=TRUE, nrows=2, stringsAsFactors=FALSE)
     cnames = colnames(tmp1)
     if(! all(colnameSelect %in% cnames)) {
         stop("Some requested columns unavailable!")
@@ -17,7 +17,7 @@ readplinkout = function(filename, colnameSelect=c("CHR", "SNP", "BP", "P")) {
         sep=""
     )
     filtercmdTest
-    alltests = read.table(pipe(filtercmdTest), header = FALSE)
+    alltests = read.table(pipe(filtercmdTest), header = FALSE, stringsAsFactors=FALSE)
     ncovar = nrow(unique(alltests))
 
     colSelectIdx = which(cnames %in% colnameSelect)
