@@ -124,7 +124,7 @@ Mhplot$methods(
 )
 
 Mhplot$methods(
-    initialize = function(plinkfile = NULL, chrinit, bpinit, pvalsinit, snpinit="0", colorvec=NULL) {
+    initialize = function(chrinit, bpinit, pvalsinit, snpinit="0", colorvec=NULL, plinkfile = NULL) {
         if(! is.null(plinkfile)) {
             plinkdat = readplinkout(plinkfile)
             chr <<- plinkdat$CHR
