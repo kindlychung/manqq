@@ -136,7 +136,9 @@ Mhplot$methods(
                 message("I will not sort CHR for you, since this might mess up with the other columns of your data!")
                 stop("CHR must be in order (1,2,3...22, for example)!")
             }
-            if(length(chrinit) != nsnp | length(pvalsinit) != nsnp) {
+            if(length(unique(c(length(chrinit), length(bpinit),
+                               length(pvalsinit)
+                               ))) > 1) {
                 stop("CHR, BP and P do not match in length!")
             }
             chr <<- chrinit
