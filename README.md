@@ -7,5 +7,4 @@ It's possible to install these tools on Windows through MinGW or Cygwin, but I h
 # Installation
 
     require(devtools)
-    install_github("mhplot", username="kindlychung")
-    install_github("bedcollr", username="kindlychung")
+    install_github("manqq", username="kindlychung")
