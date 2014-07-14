@@ -157,6 +157,9 @@ Mhplot$methods(
     }
 )
 
+.DollarNames.Mhplot <- function(x, pattern){
+  grep(pattern, getRefClass(class(x))$methods(), value=TRUE)
+}
 
 
 ## require(ggplot2)
