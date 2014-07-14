@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 // rcpparma_hello_world
 arma::mat rcpparma_hello_world();
-RcppExport SEXP mhplot_rcpparma_hello_world() {
+RcppExport SEXP manqq_rcpparma_hello_world() {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
@@ -22,7 +22,7 @@ END_RCPP
 }
 // rcpparma_outerproduct
 arma::mat rcpparma_outerproduct(const arma::colvec& x);
-RcppExport SEXP mhplot_rcpparma_outerproduct(SEXP xSEXP) {
+RcppExport SEXP manqq_rcpparma_outerproduct(SEXP xSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
@@ -37,7 +37,7 @@ END_RCPP
 }
 // rcpparma_innerproduct
 double rcpparma_innerproduct(const arma::colvec& x);
-RcppExport SEXP mhplot_rcpparma_innerproduct(SEXP xSEXP) {
+RcppExport SEXP manqq_rcpparma_innerproduct(SEXP xSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
@@ -52,7 +52,7 @@ END_RCPP
 }
 // rcpparma_bothproducts
 Rcpp::List rcpparma_bothproducts(const arma::colvec& x);
-RcppExport SEXP mhplot_rcpparma_bothproducts(SEXP xSEXP) {
+RcppExport SEXP manqq_rcpparma_bothproducts(SEXP xSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {

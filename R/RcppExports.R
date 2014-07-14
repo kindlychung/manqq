@@ -2,18 +2,18 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 rcpparma_hello_world <- function() {
-    .Call('mhplot_rcpparma_hello_world', PACKAGE = 'mhplot')
+    .Call('manqq_rcpparma_hello_world', PACKAGE = 'manqq')
 }
 
 rcpparma_outerproduct <- function(x) {
-    .Call('mhplot_rcpparma_outerproduct', PACKAGE = 'mhplot', x)
+    .Call('manqq_rcpparma_outerproduct', PACKAGE = 'manqq', x)
 }
 
 rcpparma_innerproduct <- function(x) {
-    .Call('mhplot_rcpparma_innerproduct', PACKAGE = 'mhplot', x)
+    .Call('manqq_rcpparma_innerproduct', PACKAGE = 'manqq', x)
 }
 
 rcpparma_bothproducts <- function(x) {
-    .Call('mhplot_rcpparma_bothproducts', PACKAGE = 'mhplot', x)
+    .Call('manqq_rcpparma_bothproducts', PACKAGE = 'manqq', x)
 }
 
