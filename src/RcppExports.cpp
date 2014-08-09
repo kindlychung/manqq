@@ -6,59 +6,18 @@
 
 using namespace Rcpp;
 
-// rcpparma_hello_world
-arma::mat rcpparma_hello_world();
-RcppExport SEXP manqq_rcpparma_hello_world() {
+// readcols
+std::vector<std::vector<std::string> > readcols(std::string fn, std::vector<unsigned int> colsel, size_t nFirstSkipLines, size_t nSkipUnit);
+RcppExport SEXP manqq_readcols(SEXP fnSEXP, SEXP colselSEXP, SEXP nFirstSkipLinesSEXP, SEXP nSkipUnitSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
-        arma::mat __result = rcpparma_hello_world();
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
-END_RCPP
-}
-// rcpparma_outerproduct
-arma::mat rcpparma_outerproduct(const arma::colvec& x);
-RcppExport SEXP manqq_rcpparma_outerproduct(SEXP xSEXP) {
-BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP );
-        arma::mat __result = rcpparma_outerproduct(x);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
-END_RCPP
-}
-// rcpparma_innerproduct
-double rcpparma_innerproduct(const arma::colvec& x);
-RcppExport SEXP manqq_rcpparma_innerproduct(SEXP xSEXP) {
-BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP );
-        double __result = rcpparma_innerproduct(x);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
-END_RCPP
-}
-// rcpparma_bothproducts
-Rcpp::List rcpparma_bothproducts(const arma::colvec& x);
-RcppExport SEXP manqq_rcpparma_bothproducts(SEXP xSEXP) {
-BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP );
-        Rcpp::List __result = rcpparma_bothproducts(x);
+        Rcpp::traits::input_parameter< std::string >::type fn(fnSEXP );
+        Rcpp::traits::input_parameter< std::vector<unsigned int> >::type colsel(colselSEXP );
+        Rcpp::traits::input_parameter< size_t >::type nFirstSkipLines(nFirstSkipLinesSEXP );
+        Rcpp::traits::input_parameter< size_t >::type nSkipUnit(nSkipUnitSEXP );
+        std::vector<std::vector<std::string> > __result = readcols(fn, colsel, nFirstSkipLines, nSkipUnit);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
