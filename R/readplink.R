@@ -52,3 +52,4 @@ readplinkoutr = function(filename, colnameSelect=c("CHR", "SNP", "BP", "P"), cov
 }
 
 
+

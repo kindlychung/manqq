@@ -7,6 +7,7 @@ It's possible to install these tools on Windows through MinGW or Cygwin, but I h
 # Installation
 
     require(devtools)
+    Sys.setenv("PKG_CXXFLAGS"="-std=c++11")
     install_github("manqq", username="kindlychung")
 
 
