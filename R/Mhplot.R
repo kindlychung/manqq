@@ -160,6 +160,25 @@ Mhplot$methods(
 		}
 )
 
+Mhplot$methods(
+		qq = function() {
+			message(paste("Before removing NAs, there are", length(originalData$mlogp), "points in -logP"))
+			o = originalData$mlogp[!is.na(originalData$mlogp)]
+			message(paste("After removing NAs, there are", length(o), "points in -logP"))
+			print(head(o))
+			message("Sorting -logP...")
+			o = sort(o, decreasing = TRUE)
+			print(head(o))
+			message("Calculating expected -logP...")
+			e = -log10(ppoints(length(o)))
+			print(head(e))
+			qqdat = data.frame(e, o)
+			qqplot = ggplot(qqdat, aes(e, o)) + geom_point(alpha=.4) +
+					xlab("Expected -log P") + ylab("Observed -log P") +
+					geom_abline(intercept=0, slope=1, alpha=.3)
+			qqplot
+		}
+)
 
 Mhplot$methods(
 		initialize = function(chr=NULL, bp=NULL, p=NULL, snp=NULL, colorvec=NULL, plinkfile = NULL) {

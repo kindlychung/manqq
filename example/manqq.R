@@ -10,4 +10,5 @@ load_all("/Users/kaiyin/personal_config_bin_files/workspace/manqq", reset = TRUE
 #o = Mhplot(plinkfile="/Users/kaiyin/Desktop/rstest")
 o = Mhplot(plinkfile="/Users/kaiyin/Desktop/RS123_1kg.assoc.linear")
 summary(o$originalData$P)
-print(o$mhplot())
+#print(o$mhplot())
+print(o$qq())
