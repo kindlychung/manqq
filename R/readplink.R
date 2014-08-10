@@ -1,24 +1,24 @@
 readplinkoutr = function(filename, colnameSelect=c("CHR", "SNP", "BP", "P"), covarHiden=FALSE) {
 	# allow globbing
 	filename = Sys.glob(filename)
-	
+
 	# extract colnames
     pilotColnames = read.table(filename, header=TRUE, nrows=1, stringsAsFactors=FALSE)
     cnames = colnames(pilotColnames)
-	
+
 	if(! covarHiden) {
 		# get index of selected cols
 		if(! all(colnameSelect %in% cnames)) {
 			stop("Some requested columns unavailable!")
 		}
 		colSelectIdx = which(cnames %in% colnameSelect)
-		
+
 		# calculate number of variables from the TEST col
 		testIdx = which(cnames == "TEST")
 		alltests = readcols(filename, testIdx, 1, 1)[[1]];
 		message("Take a look at the TEST column of the plink output file: ")
 		print(head(alltests))
-		
+
 		# assuming nobody would cram 500 variables into a GWAS model
 		if (length(alltests) > 500) {
 			ncovar = length(unique(alltests[1:500]))
@@ -50,4 +50,5 @@ readplinkoutr = function(filename, colnameSelect=c("CHR", "SNP", "BP", "P"), cov
 
     plinkout
 }
+
 
