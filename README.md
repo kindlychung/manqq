@@ -12,12 +12,11 @@ It's possible to install these tools on Windows through MinGW or Cygwin, but I h
 
 # Changes
 
+* added pval filter
 * no longer store CHR, SNP, BP as vectors, they are in a data frame
 * reading of plink output file now handled by c++ functions
 
 # To do
 
-* check qq plot function
-* diagnostic plot on and off
 * test initializer using vectors
 * replace message with warning?

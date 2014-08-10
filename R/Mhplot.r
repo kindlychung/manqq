@@ -181,7 +181,7 @@ Mhplot$methods(
 )
 
 Mhplot$methods(
-		initialize = function(chr=NULL, bp=NULL, p=NULL, snp=NULL, colorvec=NULL, plinkfile = NULL) {
+		initialize = function(chr=NULL, bp=NULL, p=NULL, snp=NULL, colorvec=NULL, plinkfile = NULL, pvalThresh = NULL) {
 			if(! is.null(plinkfile)) {
 				message("Reading from a plink output file...")
 				originalData <<- readplinkoutr(plinkfile)
@@ -204,6 +204,13 @@ Mhplot$methods(
 			originalData <<- originalData[order(originalData$CHR, originalData$BP), ]
 			message("Head of data after sorting:")
 			print(head(originalData))
+			
+			if(! is.null(pvalThresh)) {
+				message(paste("You have requested to filter by p values, with threshold ", pvalThresh))
+				originalData <<- originalData[which(originalData$P < pvalThresh), ]
+				message("Head of data after filtering:")
+				print(head(originalData))
+			}
 			
 			nsnp <<- length(originalData$BP)
 			message(paste(nsnp, "SNPs in total"))
