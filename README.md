@@ -1,7 +1,7 @@
 # Requirements
 
 * git
-* R packages: 
+* R packages:
     * ggplot2
     * Rcpp
     * RcppArmadillo
@@ -16,6 +16,8 @@
 
 # Changes
 
+* fixed an out-of-index bug in readcols
+* readcols now switched to Rcpp::CharacterMatrix
 * added pval filter
 * no longer store CHR, SNP, BP as vectors, they are in a data frame
 * reading of plink output file now handled by c++ functions

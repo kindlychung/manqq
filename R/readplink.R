@@ -6,7 +6,8 @@ readplinkoutr = function(filename, colnameSelect=c("CHR", "SNP", "BP", "P"), cov
     pilotColnames = read.table(filename, header=TRUE, nrows=1, stringsAsFactors=FALSE)
     cnames = colnames(pilotColnames)
 
-	if(! covarHiden) {
+	if(!covarHiden) {
+		message("Covariates has not been hidden, need to sort it out...")
 		# get index of selected cols
 		if(! all(colnameSelect %in% cnames)) {
 			stop("Some requested columns unavailable!")
@@ -15,7 +16,7 @@ readplinkoutr = function(filename, colnameSelect=c("CHR", "SNP", "BP", "P"), cov
 
 		# calculate number of variables from the TEST col
 		testIdx = which(cnames == "TEST")
-		alltests = readcols(filename, testIdx, 1, 1)[[1]];
+		alltests = readcols(filename, testIdx, 1, 1)[,1];
 		message("Take a look at the TEST column of the plink output file: ")
 		print(head(alltests))
 
@@ -27,6 +28,7 @@ readplinkoutr = function(filename, colnameSelect=c("CHR", "SNP", "BP", "P"), cov
 		}
 	}
 	else {
+		message("Covariates has been hidden, cool.")
 		ncovar = 1
 	}
 

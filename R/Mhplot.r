@@ -184,7 +184,7 @@ Mhplot$methods(
 		initialize = function(chr=NULL, bp=NULL, p=NULL, snp=NULL, colorvec=NULL, plinkfile = NULL, pvalThresh = NULL) {
 			if(! is.null(plinkfile)) {
 				message("Reading from a plink output file...")
-				originalData <<- readplinkoutr(plinkfile)
+				originalData <<- readplinkoutr(filename=plinkfile)
 			} else {
 				if(is.null(chr) | is.null(bp) | is.null(p)) {
 					stop("You should either give me a file in plink output format, or three vectors (chr, bp, p)")
