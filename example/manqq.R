@@ -19,9 +19,13 @@ print(o$mhplot())
 require(devtools)
 Sys.setenv("PKG_CXXFLAGS"="-std=c++11")
 install_github("manqq", username="kindlychung")
-
 require(manqq)
-o = Mhplot(plinkfile="RS123_1kg.assoc.linear", pvalThresh=0.1)
+o = Mhplot(plinkfile="/home/kaiyin/Desktop/rstest", pvalThresh=0.1)
+o.plot = o$mhplot()
+require(ggplot2)
+ggsave(filename="/tmp/x.png", plot=o.plot)
+
+
 
 require(devtools)
 Sys.setenv("PKG_CXXFLAGS"="-std=c++11")
