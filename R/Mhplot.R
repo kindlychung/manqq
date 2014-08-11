@@ -33,6 +33,10 @@ Mhplot$methods(
 				message(paste("Setting apparent chr (achr) for chromosome", i))
 				originalData$achr <<- originalData$achr + (originalData$CHR >= i)
 			}
+			message(paste("Head of apparent chr:"))
+			print(head(originalData$achr, 500))
+			message(paste("Tail of apparent chr:"))
+			print(tail(originalData$achr, 500))
 		}
 )
 
@@ -112,7 +116,7 @@ Mhplot$methods(
 				message("More than one chromosome present, set coloring by chr...")
 				chrColor = TRUE
 				myplot = ggplot(originalData, aes(sbp, mlogp)) + xlab("Chromosomes") +
-						scale_x_continuous(breaks=chrunique,
+						scale_x_continuous(breaks=appChrunique,
 								minor_breaks=NULL,
 								labels=chrunique)
 			} else {
@@ -123,7 +127,7 @@ Mhplot$methods(
 			
 			
 			if(chrColor) {
-				if(!is.null(colorvec)) {
+				if(!is.null(originalData$colorvec)) {
 					message("You have provided an extra color vector, coloring by both that and chr...")
 					myplot = myplot + geom_point(aes(color=factor(paste(colorvec, achr %% 2)))) +
 							scale_color_discrete(name="")
@@ -133,7 +137,7 @@ Mhplot$methods(
 							scale_color_discrete(guide=FALSE)
 				}
 			} else {
-				if(!is.null(colorvec)) {
+				if(!is.null(originalData$colorvec)) {
 					message("You have provided an extra color vector, coloring by that...")
 					myplot = myplot + geom_point(aes(color=factor(colorvec))) +
 							scale_color_discrete(name="")
@@ -191,7 +195,7 @@ Mhplot$methods(
 				}
 				message("Getting chr, bp, pval vectors inside R...")
 				originalData <<- data.frame(CHR=chr, BP=bp, P=p)
-				if(! is.NULL(snp)) {
+				if(! is.null(snp)) {
 					message("SNP names provided, adding it to data frame...")
 					originalData$SNP <<- snp
 				}
@@ -221,8 +225,11 @@ Mhplot$methods(
 			message("Calculating -LogP...")
 			originalData$mlogp <<- -log10(originalData$P)
 			appChr()
+			appChrunique <<- sort(unique(originalData$achr))
 			scaleByChr()
-			colorvec <<- colorvec
+			if (!is.null(colorvec)) {
+				originalData$colorvec <<- colorvec
+			}
 		}
 )
 

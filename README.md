@@ -16,6 +16,7 @@
 
 # Changes
 
+* fixed breaks-labels
 * fixed an out-of-index bug in readcols
 * readcols now switched to Rcpp::CharacterMatrix
 * added pval filter
