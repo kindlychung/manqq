@@ -1,14 +1,17 @@
 # Requirements
 
-* Operating system: Linux. This packeage relies on some linux utilities for text processing (sed, cut etc).
-It's possible to install these tools on Windows through MinGW or Cygwin, but I haven't tried it.
-* R packages: You need devtools to get started. ggplot2.
+* git
+* R packages: 
+    * ggplot2
+    * Rcpp
+    * RcppArmadillo
+    * devtools
 
 # Installation
 
     require(devtools)
     Sys.setenv("PKG_CXXFLAGS"="-std=c++11")
-    install_github("manqq", username="kindlychung")
+    install_github("rbed", username="kindlychung")
 
 
 # Changes
