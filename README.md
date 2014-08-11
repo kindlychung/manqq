@@ -11,7 +11,7 @@
 
     require(devtools)
     Sys.setenv("PKG_CXXFLAGS"="-std=c++11")
-    install_github("rbed", username="kindlychung")
+    install_github("manqq", username="kindlychung")
 
 
 # Changes
