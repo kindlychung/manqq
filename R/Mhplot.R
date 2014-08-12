@@ -122,7 +122,7 @@ Mhplot$methods(
 			} else {
 				message("Only one chromosome present, set no coloring by chr...")
 				chrColor = FALSE
-				myplot = ggplot(originalDatanalData, aes(BP, mlogp)) + xlab(paste("Position on CHR", chr[1]))
+				myplot = ggplot(originalData, aes(BP, mlogp)) + xlab(paste("Position on CHR", chr[1]))
 			}
 			
 			
