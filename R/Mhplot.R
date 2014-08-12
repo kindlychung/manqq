@@ -8,16 +8,17 @@ Mhplot = setRefClass(
 		"Mhplot",
 		fields = list(
 				originalData = "data.frame",
-				nsnp="numeric",
-				mlogp="numeric",
-				nchr="numeric",
-				chrunique="numeric",
+				nsnp = "numeric",
+				mlogp = "numeric",
+				nchr = "numeric",
+				chrunique = "numeric",
+				appChrunique = "numeric",
 				# apperant chr, see function below
-				achr="numeric",
+				achr = "numeric",
 				# base-pair position scaled within chr
-				sbp="numeric",
+				sbp = "numeric",
 				# todo: base-pair position scaled to real length of chromosome!
-				colorvec="ANY"
+				colorvec = "ANY"
 		)
 )
 
